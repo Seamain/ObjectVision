@@ -10,7 +10,12 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:contentDescription="tv is not danger and 0.75 meters away from you
+    laptop is not danger and 0.85 meters away from you
+    keyboard is not danger and 0.55 meters away from you
+    mouse is not danger and 0.65 meters away from you
+    mouse is not danger and 0.80 meters away from you" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/vertical_centerline"
