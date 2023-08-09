@@ -6,6 +6,8 @@ import android.graphics.*
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.accessibility.AccessibilityEvent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
@@ -56,6 +58,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityMainBinding.inflate(layoutInflater)
+        viewBinding.root.apply {
+            importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
+            accessibilityDelegate = object : View.AccessibilityDelegate() {
+                override fun onInitializeAccessibilityEvent(host: View, event: AccessibilityEvent) {
+                    host.let { event.let { it1 -> super.onInitializeAccessibilityEvent(it, it1) } }
+                    event.className = MainActivity::class.java.name
+                }
+            }
+        }
+
         setContentView(viewBinding.root)
 
         yolov5ncnn.Init(assets)
@@ -124,6 +136,11 @@ class MainActivity : AppCompatActivity() {
         if (objects == null || bitmap == null) {
             //viewBinding.imageView.setImageBitmap(bitmap)
             return
+        }
+
+        viewBinding.imageView.apply {
+            importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
+            contentDescription = "Detected Objects"
         }
         // draw objects on bitmap
         val rgba: Bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true)

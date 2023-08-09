@@ -7,6 +7,10 @@ android {
     namespace 'com.example.ncnn_mobile'
     compileSdk 33
 
+    lintOptions {
+        disable "Instantiatable"
+    }
+
     defaultConfig {
         applicationId "seamain.studio.objectvision"
         minSdk 24
