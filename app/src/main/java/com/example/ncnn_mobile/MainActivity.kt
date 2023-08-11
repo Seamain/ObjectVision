@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         yolov5ncnn.Init(assets)
         // Request camera permissions
         if (allPermissionsGranted()) {
-            startCamera()
+//            startCamera()
         } else {
             ActivityCompat.requestPermissions(
                 this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS
