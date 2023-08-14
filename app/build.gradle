@@ -7,8 +7,8 @@ android {
     namespace 'com.example.ncnn_mobile'
     compileSdk 33
 
-    lintOptions {
-        disable "Instantiatable"
+    lint {
+        baseline = file("lint-baseline.xml")
     }
 
     defaultConfig {
@@ -16,7 +16,7 @@ android {
         minSdk 24
         targetSdk 33
         versionCode 1
-        versionName "1.1.1"
+        versionName "1.1.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -29,8 +29,8 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
+//            shrinkResources true
+//            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
