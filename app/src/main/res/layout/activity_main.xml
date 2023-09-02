@@ -13,7 +13,8 @@
         android:layout_height="match_parent"
         android:src="@drawable/nihao"
         android:layout_weight="1"
-        android:contentDescription="tv不危险距离你0.75米
+        android:contentDescription="已打开应用，正在进行检测
+        tv不危险距离你0.75米
     laptop不危险距离你0.85米
     keyboard 不危险距离你0.55米
     mouse不危险距离你0.65米
